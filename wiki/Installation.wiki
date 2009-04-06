@@ -1,9 +1,9 @@
 #summary How to install get_flash_videos
 #labels Featured,Phase-Deploy
 
-== Various operating systems ==
+= Various operating systems =
 
-= Ubuntu =
+== Ubuntu ==
 
 Run the following commands in a terminal, this installs it system-wide.
 
@@ -14,7 +14,7 @@ Run the following commands in a terminal, this installs it system-wide.
    get_flash_videos url..
 }}}
 
-= OSX =
+== OSX ==
 
 Run the following commands in a terminal, this installs it in your home directory.
 
