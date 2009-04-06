@@ -11,6 +11,11 @@ Run the following commands in a terminal, this installs it system-wide.
    sudo apt-get install libwww-mechanize-perl libxml-simple-perl
    sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.0 -O /usr/local/bin/get_flash_videos
    sudo chmod a+x /usr/local/bin/get_flash_videos
+}}}
+
+Then, to download something:
+
+{{{
    get_flash_videos url..
 }}}
 
@@ -21,6 +26,10 @@ Run the following commands in a terminal, this installs it in your home director
 {{{
   curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.0
   chmod a+x get_flash_videos
+}}}
+
+Then, to download something:
+{{{
   ./get_flash_videos url..
 }}}
 
