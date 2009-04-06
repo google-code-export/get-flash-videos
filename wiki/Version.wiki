@@ -1,0 +1,6 @@
+﻿#summary Latest version summary, for the update feature.
+
+The latest version: 1.2
+
+This can be obtained from: http://get-flash-videos.googlecode.com/files/
+
