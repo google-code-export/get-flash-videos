@@ -1,0 +1,31 @@
+#summary How to install get_flash_videos
+#labels Featured,Phase-Deploy
+
+== Various operating systems ==
+
+= Ubuntu =
+
+Run the following commands in a terminal, this installs it system-wide.
+
+{{{
+   sudo apt-get install libwww-mechanize-perl libxml-simple-perl
+   sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.0 -O /usr/local/bin/get_flash_videos
+   sudo chmod a+x /usr/local/bin/get_flash_videos
+   get_flash_videos url..
+}}}
+
+= OSX =
+
+Run the following commands in a terminal, this installs it in your home directory.
+
+{{{
+  curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.0
+  chmod a+x get_flash_videos
+  ./get_flash_videos url..
+}}}
+
+Note you may also need to install the Perl modules XML::Simple and Data::AMF for support for some sites.
+
+= rtmpdump =
+
+get_flash_videos can download videos from servers over RTMP, this needs rtmpdump. You can get a copy of rtmpdump from the excellent [http://linuxcentre.net/getiplayer/download/ get_iplayer download page]. You should then copy this to somewhere on your PATH.
