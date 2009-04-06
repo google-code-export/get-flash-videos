@@ -19,6 +19,38 @@ Then, to download something:
    get_flash_videos url..
 }}}
 
+== Other Linux/Unix-like OS ==
+
+Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). Preferably install the packaged versions of these provided by your distribution. If you can't, install the modules off [http://search.cpan.org/ CPAN] - see the [http://search.cpan.org/~jhi/perl-5.8.0/pod/perlmodinstall.pod perlmodinstall] documentation for more information.
+
+Then run the following commands in a terminal, this installs get-flash-videos system-wide.
+
+{{{
+   sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.2 -O /usr/local/bin/get_flash_videos
+   sudo chmod a+x /usr/local/bin/get_flash_videos
+}}}
+
+Then, to download something:
+{{{
+  ./get_flash_videos url..
+}}}
+
+== Windows ==
+
+Install [http://www.activestate.com/activeperl/ ActivePerl], making sure you tell the installer to add perl's bin directory to your PATH.
+
+Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). You can install these using ActivePerl's PPM tool.
+
+Save get-flash-videos somewhere on your hard disk, for example c:\flash.
+
+Then, to download something:
+{{{
+  Start -> Run -> cmd
+  perl c:/flash/get_flash_videos url
+}}}
+
+We haven't tested rtmpdump on win32. 
+
 == OSX ==
 
 Run the following commands in a terminal, this installs it in your home directory.
