@@ -32,7 +32,7 @@ Then run the following commands in a terminal, this installs get-flash-videos sy
 
 Then, to download something:
 {{{
-  ./get_flash_videos url..
+  get_flash_videos url..
 }}}
 
 == Windows ==
