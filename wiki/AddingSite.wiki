@@ -7,16 +7,16 @@ hostname in the given URL to download to find the module.
 
 For example given: 'http://www.example.com/video/1234' it will search for:
 
-* FlashVideo::Site::Www
-* FlashVideo::Site::Example
-* FlashVideo::Site::Com
+  * FlashVideo::Site::Www
+  * FlashVideo::Site::Example
+  * FlashVideo::Site::Com
 
 (The first letter is capitalised as is the convention for Perl modules, the rest is lowercase.)
 
 In this case the best match will be achieved by using
 'FlashVideo::Site::Example'. So for this example we'll create that. You can do
 the following even with the combined version, as get_flash_videos will still
-attempt to load the modules from disk.
+attempt to load the modules from disk:
 
 {{{
  mkdir -p FlashVideo/Site
