@@ -1,4 +1,5 @@
 ﻿#summary Adding support for a site
+#labels Phase-Implementation
 
 Support for a site is added by creating the relevant `FlashVideo::Site::` module.
 
@@ -88,4 +89,3 @@ the title of the HTML page for that..
 
 That is all there is to creating a site module, except obviously working out
 what the site actually does. Firebug, Wireshark, etc are useful here.
-
