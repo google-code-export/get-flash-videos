@@ -48,9 +48,9 @@ sub find_video {
 As you can see this consists of a module with one subroutine 'find_video' which
 will be called when a video needs downloading.
 
-When find_video is called you can rely on on WWW::Mechanize object $browser
+When find_video is called you can rely on on `WWW::Mechanize` object `$browser`
 being at the page the user provided on the command line, so matching on
-$browser->content needs nothing special. $embed_url will normally be the same
+`$browser->content` needs nothing special. `$embed_url` will normally be the same
 as the page, but in the case of embedded content it may differ (see the
 Brightcove support for example).
 
@@ -60,7 +60,7 @@ filename to use (this should ideally be something descriptive, not necessarily
 the filename used by the video site).
 
 Going back to the example, say that the site embedded a file in the page, like
-so: <tt>file: 'some-video'</tt>.
+so: `file: 'some-video'`.
 
 It would be possible to parse out the filename with some code like the
 following:
@@ -85,7 +85,7 @@ the title of the HTML page for that..
   $filename ||= get_video_filename();
 }}}
 
-(title_to_filename and get_video_filename are methods provided by FlashVideo::Utils.)
+(`title_to_filename` and `get_video_filename` are methods provided by `FlashVideo::Utils`.)
 
 That is all there is to creating a site module, except obviously working out
 what the site actually does. Firebug, Wireshark, etc are useful here.
