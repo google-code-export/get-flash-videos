@@ -33,7 +33,7 @@ use strict;
 use FlashVideo::Utils;
 
 sub find_video {
-  my ($self, $browser, $url) = @_;
+  my ($self, $browser, $embed_url) = @_;
 
   ... code here ...
 
@@ -49,9 +49,9 @@ will be called when a video needs downloading.
 
 When find_video is called you can rely on on WWW::Mechanize object $browser
 being at the page the user provided on the command line, so matching on
-$browser->content needs nothing special. $url will normally be the same as the
-page, but in the case of embedded content it may differ (see the Brightcove
-support for example).
+$browser->content needs nothing special. $embed_url will normally be the same
+as the page, but in the case of embedded content it may differ (see the
+Brightcove support for example).
 
 The subroutine should return the url where the FLV video can be found (or for
 RTMP a hash reference describing the parameters to rtmpdump), as well as a
