@@ -85,7 +85,7 @@ the title of the HTML page for that..
   $filename ||= get_video_filename();
 }}}
 
-(`title_to_filename` and `get_video_filename` are methods provided by `FlashVideo::Utils`.)
+(`title_to_filename` and `get_video_filename` are methods provided by `FlashVideo::Utils`. *Please* make sure you use these methods for naming files, particularly if you can't extract the title of the page. get_video_filename() returns a date-based filename like <tt>video20081111213736.mp4</tt>, which although not ideal, is better than "default" or similar. Both functions take a type parameter for use as the file's extension. This defaults to flv, but should be set to mp4 if the downloaded file is an MPEG-4 container.)
 
 That is all there is to creating a site module, except obviously working out
-what the site actually does. Firebug, Wireshark, etc are useful here.
+what the site actually does. [http://www.getfirebug.com/ Firebug], [http://www.wireshark.org/ Wireshark], [http://portswigger.net/proxy/ Burp] and so on are useful here.
