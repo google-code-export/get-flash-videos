@@ -8,3 +8,4 @@ The latest is version: 1.6
 
 This can be obtained from: http://get-flash-videos.googlecode.com/files/
 
+info: http://code.google.com/p/get-flash-videos/source/browse/trunk/debian/changelog
