@@ -8,15 +8,15 @@
 Run the following commands in a terminal, this installs it system-wide.
 
 {{{
-   sudo apt-get install libwww-mechanize-perl libxml-simple-perl
-   wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.7-1_all.deb
-   sudo dpkg -i get-flash-videos_1.7-1_all.deb
+ sudo apt-get install libwww-mechanize-perl libxml-simple-perl
+ wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.7-1_all.deb
+ sudo dpkg -i get-flash-videos_1.7-1_all.deb
 }}}
 
 Then, to download something:
 
 {{{
-   get_flash_videos url..
+ get_flash_videos url..
 }}}
 
 == Other Linux/Unix-like OS ==
@@ -26,13 +26,13 @@ Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for
 Then run the following commands in a terminal, this installs get-flash-videos system-wide.
 
 {{{
-   sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.7 -O /usr/local/bin/get_flash_videos
-   sudo chmod a+x /usr/local/bin/get_flash_videos
+ sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.7 -O /usr/local/bin/get_flash_videos
+ sudo chmod a+x /usr/local/bin/get_flash_videos
 }}}
 
 Then, to download something:
 {{{
-  get_flash_videos url..
+ get_flash_videos url..
 }}}
 
 == Windows ==
@@ -45,8 +45,8 @@ Save get-flash-videos somewhere on your hard disk, for example c:\flash.
 
 Then, to download something:
 {{{
-  Start -> Run -> cmd
-  perl c:/flash/get_flash_videos url
+ Start -> Run -> cmd
+ perl c:/flash/get_flash_videos url
 }}}
 
 We haven't tested rtmpdump on win32. 
@@ -56,13 +56,13 @@ We haven't tested rtmpdump on win32.
 Run the following commands in a terminal, this installs it in your home directory.
 
 {{{
-  curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.7
-  chmod a+x get_flash_videos
+ curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.7
+ chmod a+x get_flash_videos
 }}}
 
 Then, to download something:
 {{{
-  ./get_flash_videos url..
+ ./get_flash_videos url..
 }}}
 
 Note you may also need to install the Perl modules XML::Simple and Data::AMF for support for some sites.
