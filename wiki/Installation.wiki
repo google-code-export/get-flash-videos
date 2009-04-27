@@ -3,14 +3,14 @@
 
 = Various operating systems =
 
-== Ubuntu ==
+== Debian / Ubuntu packaged version ==
 
 Run the following commands in a terminal, this installs it system-wide.
 
 {{{
    sudo apt-get install libwww-mechanize-perl libxml-simple-perl
-   sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.7 -O /usr/local/bin/get_flash_videos
-   sudo chmod a+x /usr/local/bin/get_flash_videos
+   sudo wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.7-1_all.deb
+   sudo dpkg -i get-flash-videos_1.7-1_all.deb
 }}}
 
 Then, to download something:
