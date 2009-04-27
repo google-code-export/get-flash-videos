@@ -1,0 +1,184 @@
+diff -ur rtmpdump/rtmp.cpp rtmpdump-fcsubscribe/rtmp.cpp
+--- rtmpdump/rtmp.cpp	2009-03-11 22:13:23.000000000 +0000
++++ rtmpdump-fcsubscribe/rtmp.cpp	2009-04-25 20:49:12.000000000 +0100
+@@ -109,7 +109,7 @@
+   SendPing(3, 1, m_nBufferMS);
+ }
+ 
+-bool CRTMP::Connect(int protocol, char *hostname, unsigned int port, char *playpath, char *tcUrl, char *swfUrl, char *pageUrl, char *app, char *auth, char *flashVer, double dTime)
++bool CRTMP::Connect(int protocol, char *hostname, unsigned int port, char *playpath, char *tcUrl, char *swfUrl, char *pageUrl, char *app, char *auth, char *flashVer, char *fcSubscribe, double dTime)
+ {
+   assert(protocol < 6);
+ 
+@@ -130,6 +130,8 @@
+   	Log(LOGDEBUG, "auth    : %s", auth);
+   if(flashVer)
+   	Log(LOGDEBUG, "flashVer: %s", flashVer);
++  if(fcSubscribe)
++        Log(LOGDEBUG, "fcSubscr: %s", fcSubscribe);
+   if(dTime > 0)
+   	Log(LOGDEBUG, "SeekTime: %lf", dTime);
+ 
+@@ -139,6 +141,7 @@
+   Link.app = app;
+   Link.auth = auth;
+   Link.flashVer = flashVer;
++  Link.fcSubscribe = fcSubscribe;
+   Link.seekTime = dTime;
+ 
+   Link.protocol = protocol;
+@@ -484,6 +487,26 @@
+   return SendRTMP(packet);
+ }
+ 
++bool CRTMP::SendFCSubscribe(char *fcSubscribe)
++{
++  RTMPPacket packet;
++  packet.m_nChannel = 0x03;   // control channel (invoke)
++  packet.m_headerType = RTMP_PACKET_SIZE_MEDIUM;
++  packet.m_packetType = 0x14; // INVOKE
++
++  packet.AllocPacket(256); // should be enough
++  char *enc = packet.m_body;
++  enc += EncodeString(enc, "FCSubscribe");
++  enc += EncodeNumber(enc, 0);
++  *enc = 0x05; // NULL
++  enc++;
++  enc += EncodeString(enc, fcSubscribe);
++
++  packet.m_nBodySize = enc - packet.m_body;
++
++  return SendRTMP(packet);
++}
++
+ bool CRTMP::SendPause()
+ {
+   RTMPPacket packet;
+@@ -630,7 +653,9 @@
+   Log(LOGERROR, "dd: %lf", d);
+   exit(1);
+   // */
+-  enc += EncodeNumber(enc, 0.0); // tincan
++  
++  if(!Link.fcSubscribe)
++    enc += EncodeNumber(enc, 0.0); // tincan
+   //////enc += EncodeNumber(enc, -1.0); // seems to work for all so far
+   //enc += EncodeNumber(enc, -1000.0); // k-tv.at
+   
+@@ -707,18 +732,36 @@
+     {
+       m_stream_id = (int)obj.GetProperty(3).GetNumber();
+ 
+-      SendPlay();
+-      if(Link.seekTime > 0) {
+-      	Log(LOGDEBUG, "%s, sending seek: %f ms", __FUNCTION__, Link.seekTime);
+-	SendSeek(Link.seekTime);
++      if (Link.fcSubscribe)
++      {
++        SendFCSubscribe(Link.fcSubscribe);
++      }
++      else
++      {
++        SendPlay();
++        if(Link.seekTime > 0) {
++          Log(LOGDEBUG, "%s, sending seek: %f ms", __FUNCTION__, Link.seekTime);
++          SendSeek(Link.seekTime);
++        }
++
++        SendPing(3, 1, m_nBufferMS);
+       }
+-	
+-      SendPing(3, 1, m_nBufferMS);
+     }
+     else if (methodInvoked == "play")
+     {
+     }
+   }
++  else if (method == "onFCSubscribe")
++  {
++    // Same as play code above..
++    SendPlay();
++    if(Link.seekTime > 0) {
++      Log(LOGDEBUG, "%s, sending seek: %f ms", __FUNCTION__, Link.seekTime);
++      SendSeek(Link.seekTime);
++    }
++
++    SendPing(3, 1, m_nBufferMS);
++  }
+   else if (method == "onBWDone")
+   {
+     //SendCheckBW();
+diff -ur rtmpdump/rtmpdump.cpp rtmpdump-fcsubscribe/rtmpdump.cpp
+--- rtmpdump/rtmpdump.cpp	2009-03-12 17:13:04.000000000 +0000
++++ rtmpdump-fcsubscribe/rtmpdump.cpp	2009-04-25 20:13:26.000000000 +0100
+@@ -432,6 +432,7 @@
+ 	char *app = 0;
+ 	char *auth = 0;
+ 	char *flashVer = 0;
++	char *fcSubscribe = 0;
+ 
+ 	char *flvFile = 0;
+ 
+@@ -455,6 +456,7 @@
+ 		{"auth",    1, NULL, 'u'},
+ 		{"flashVer",1, NULL, 'f'},
+ 		{"flv",     1, NULL, 'o'},
++		{"fcsubscribe",1, NULL, 'b'},
+ 		{"resume",  0, NULL, 'e'},
+ 		{0,0,0,0}
+ 	};
+@@ -477,6 +479,7 @@
+ 				printf("--app|-a app\t\tName of player used\n");
+ 				printf("--auth|-u string\tAuthentication string to be appended to the connect string\n");
+ 				printf("--flashVer|-f string\tflash version string (default: \"LNX 9,0,124,0\")\n");
++				printf("--fcsubscribe|-b string\t\tFCSubscribe parameter\n");
+ 				printf("--flv|-o string\t\tflv output file name\n\n");
+ 				printf("--resume|-e\n\n");
+ 				printf("If you don't pass parameters for swfUrl, tcUrl, pageUrl, app or auth these propertiews will not be included in the connect ");
+@@ -554,6 +557,10 @@
+ 			case 'u':
+ 				auth = optarg;		
+ 				break;
++                        case 'b':
++                                fcSubscribe = optarg;
++                                break;
++
+ 			default:
+ 				printf("unknown option: %c\n", opt);
+ 				break;
+@@ -839,7 +846,7 @@
+ 		dSeek = (duration-5.0)*1000.0;
+ #endif*/
+ 	InitSockets();
+-	if (!rtmp->Connect(protocol, hostname, port, playpath, tcUrl, swfUrl, pageUrl, app, auth, flashVer, dSeek)) {
++	if (!rtmp->Connect(protocol, hostname, port, playpath, tcUrl, swfUrl, pageUrl, app, auth, flashVer, fcSubscribe, dSeek)) {
+ 		printf("Failed to connect!\n");
+ 		return RD_FAILED;
+ 	}
+diff -ur rtmpdump/rtmp.h rtmpdump-fcsubscribe/rtmp.h
+--- rtmpdump/rtmp.h	2009-03-11 21:37:17.000000000 +0000
++++ rtmpdump-fcsubscribe/rtmp.h	2009-04-25 20:21:12.000000000 +0100
+@@ -62,6 +62,7 @@
+         char *app;
+         char *auth;
+ 	char *flashVer;
++        char *fcSubscribe;
+ 
+ 	double seekTime;
+ } LNK;
+@@ -87,6 +88,7 @@
+ 	char *app, 
+ 	char *auth, 
+ 	char *flashVer, 
++        char *fcSubscribe,
+       	double dTime);
+ 
+       bool IsConnected(); 
+@@ -123,6 +125,7 @@
+       bool SendPing(short nType, unsigned int nObject, unsigned int nTime = 0);
+       bool SendBGHasStream(double dId, char *playpath);
+       bool SendCreateStream(double dStreamId);
++      bool SendFCSubscribe(char *fcSubscribe);
+       bool SendPlay();
+       bool SendPause();
+       bool SendSeek(double dTime);

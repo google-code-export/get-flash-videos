@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>get_flash_videos - Video downloader for various Flash-based video hosting sites</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#options">OPTIONS</a></li>
+	<li><a href="#configuration">CONFIGURATION</a></li>
+	<li><a href="#bugs">BUGS</a></li>
+	<li><a href="#hacking">HACKING</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>get_flash_videos - Video downloader for various Flash-based video hosting sites</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>get_flash_videos [OPTION]... URL [FILENAME]</p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>Download the Flash video from the web page given in <code>URL</code> saving as
+<code>FILENAME</code>. If no filename is supplied, a suitable one will be chosen.</p>
+<p><em>get-flash-videos</em> attempts to support many video sites, therefore there is no
+list of supported sites in this manual page as it frequently changes, see the
+website for a list.</p>
+<p>
+</p>
+<hr />
+<h1><a name="options">OPTIONS</a></h1>
+<dl>
+<dt><strong><a name="d_debug" class="item"><strong>-d</strong>, <strong>--debug</strong></a></strong></dt>
+
+<dd>
+<p>Print extra debugging information.</p>
+</dd>
+<dt><strong><a name="p_play" class="item"><strong>-p</strong>, <strong>--play</strong></a></strong></dt>
+
+<dd>
+<p>Begin playing the video once enough of the file has been downloaded.</p>
+</dd>
+<dt><strong><a name="player_cmd" class="item"><strong>--player=<em>CMD</em></strong></a></strong></dt>
+
+<dd>
+<p>Specify the player to use for the <code>--play</code> option. Any occurrence of <code>%s</code> in
+this string will be replaced with the filename of the video (appropriately
+shell escaped).</p>
+<p>The default is to use mplayer:</p>
+<pre>
+  mplayer -really-quiet %s</pre>
+<p>You may wish to automatically delete the video after you have viewed it:</p>
+<pre>
+  mplayer -really-quiet %s; rm %s</pre>
+</dd>
+<dt><strong><a name="q_quiet" class="item"><strong>-q</strong>, <strong>--quiet</strong></a></strong></dt>
+
+<dd>
+<p>Be quiet, only print errors.</p>
+</dd>
+<dt><strong><a name="u_update" class="item"><strong>-u</strong>, <strong>--update</strong></a></strong></dt>
+
+<dd>
+<p>Check the <em>get-flash-videos</em> website for a newer version. If a newer version is
+available download it and replace the running version with it. You will need to
+run this as a user with permission to write to the location of the
+<em class="file">get_flash_videos</em> program. If you installed using a packaging system it is
+recommended to use that to upgrade, not this option.</p>
+</dd>
+<dt><strong><a name="v_version" class="item"><strong>-v</strong>, <strong>--version</strong></a></strong></dt>
+
+<dd>
+<p>Print the version of <em>get_flash_videos</em>.</p>
+</dd>
+<dt><strong><a name="y_yes" class="item"><strong>-y</strong>, <strong>--yes</strong></a></strong></dt>
+
+<dd>
+<p>Do not prompt with any questions, just say 'yes'. This means either literally
+yes, or the default option if choosing from a list.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="configuration">CONFIGURATION</a></h1>
+<p>On startup <em>get_flash_videos</em> will read the configuration files located at
+<em class="file">/etc/get_flash_videosrc</em> and then <em class="file">~/.get_flash_videosrc</em>.</p>
+<p>The files follow a simple <code>name = value</code> convention where the name matches the
+long version of the command line options. For example if you want to specify the
+default player, to always say yes and to always run the player the file might
+look like:</p>
+<pre>
+  player = my-video-player %s 2&gt;/dev/null; rm -f %s
+  yes</pre>
+<pre>
+  # Always play the video
+  play</pre>
+<p>Options given on the command line will override these options, with the
+exception that it is not currently possible to disable an option enabled in the
+configuration file from the command line.</p>
+<p>
+</p>
+<hr />
+<h1><a name="bugs">BUGS</a></h1>
+<p>Third party sites are a moving target therefore it is possible support for some
+of the sites may not work correctly. First check that you are using the latest
+version.</p>
+<p>If you wish to see open bugs or report a bug visit
+<a href="http://code.google.com/p/get-flash-videos/issues/list">http://code.google.com/p/get-flash-videos/issues/list</a>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="hacking">HACKING</a></h1>
+<p>If you'd like to change or improve <em>get-flash-videos</em> (for example adding
+support for another site), please see the project wiki where there's an
+overview to help you get started, and a detailed tutorial on adding support
+for a new site:
+<a href="http://code.google.com/p/get-flash-videos/w/list">http://code.google.com/p/get-flash-videos/w/list</a>.</p>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright 2009, zakflash and MonsieurVideo</p>
+<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may
+not use this file except in compliance with the License. You may obtain a
+copy of the License at
+<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+<p>Contributions are welcome and encouraged, but please take care to
+maintain the JustWorks(tm) nature of the program.</p>
+
+</body>
+
+</html>
