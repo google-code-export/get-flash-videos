@@ -1,0 +1,104 @@
+NAME
+    get_flash_videos - Video downloader for various Flash-based video
+    hosting sites
+
+SYNOPSIS
+    get_flash_videos [OPTION]... URL [FILENAME]
+
+DESCRIPTION
+    Download the Flash video from the web page given in "URL" saving as
+    "FILENAME". If no filename is supplied, a suitable one will be chosen.
+
+    *get-flash-videos* attempts to support many video sites, therefore there
+    is no list of supported sites in this manual page as it frequently
+    changes, see the website for a list.
+
+OPTIONS
+    -d, --debug
+        Print extra debugging information.
+
+    -p, --play
+        Begin playing the video once enough of the file has been downloaded.
+
+    --player=*CMD*
+        Specify the player to use for the "--play" option. Any occurrence of
+        %s in this string will be replaced with the filename of the video
+        (appropriately shell escaped).
+
+        The default is to use mplayer:
+
+          mplayer -really-quiet %s
+
+        You may wish to automatically delete the video after you have viewed
+        it:
+
+          mplayer -really-quiet %s; rm %s
+
+    -q, --quiet
+        Be quiet, only print errors.
+
+    -u, --update
+        Check the *get-flash-videos* website for a newer version. If a newer
+        version is available download it and replace the running version
+        with it. You will need to run this as a user with permission to
+        write to the location of the get_flash_videos program. If you
+        installed using a packaging system it is recommended to use that to
+        upgrade, not this option.
+
+    -v, --version
+        Print the version of *get_flash_videos*.
+
+    -y, --yes
+        Do not prompt with any questions, just say 'yes'. This means either
+        literally yes, or the default option if choosing from a list.
+
+CONFIGURATION
+    On startup *get_flash_videos* will read the configuration files located
+    at /etc/get_flash_videosrc and then ~/.get_flash_videosrc.
+
+    The files follow a simple "name = value" convention where the name
+    matches the long version of the command line options. For example if you
+    want to specify the default player, to always say yes and to always run
+    the player the file might look like:
+
+      player = my-video-player %s 2>/dev/null; rm -f %s
+      yes
+
+      # Always play the video
+      play
+
+    Options given on the command line will override these options, with the
+    exception that it is not currently possible to disable an option enabled
+    in the configuration file from the command line.
+
+BUGS
+    Third party sites are a moving target therefore it is possible support
+    for some of the sites may not work correctly. First check that you are
+    using the latest version.
+
+    If you wish to see open bugs or report a bug visit
+    <http://code.google.com/p/get-flash-videos/issues/list>.
+
+HACKING
+    If you'd like to change or improve *get-flash-videos* (for example
+    adding support for another site), please see the project wiki where
+    there's an overview to help you get started, and a detailed tutorial on
+    adding support for a new site:
+    <http://code.google.com/p/get-flash-videos/w/list>.
+
+COPYRIGHT
+    Copyright 2009, zakflash and MonsieurVideo
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may
+    not use this file except in compliance with the License. You may obtain
+    a copy of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Contributions are welcome and encouraged, but please take care to
+    maintain the JustWorks(tm) nature of the program.
+
