@@ -9,8 +9,8 @@ Run the following commands in a terminal, this installs it system-wide.
 
 {{{
  sudo apt-get install libwww-mechanize-perl libxml-simple-perl
- wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.7-1_all.deb
- sudo dpkg -i get-flash-videos_1.7-1_all.deb
+ wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.8-1_all.deb
+ sudo dpkg -i get-flash-videos_1.8-1_all.deb
 }}}
 
 Then, to download something:
