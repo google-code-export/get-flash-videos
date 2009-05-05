@@ -4,7 +4,7 @@ Please note this page is designed for use with the _--update_ feature.
 If you're a human please download from
 [http://code.google.com/p/get-flash-videos/downloads/list the download tab].
 
-The latest is version: 1.8
+The latest is version: 1.9
 
 This can be obtained from: http://get-flash-videos.googlecode.com/files/
 

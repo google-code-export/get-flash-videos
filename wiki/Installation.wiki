@@ -9,8 +9,8 @@ Run the following commands in a terminal, this installs it system-wide.
 
 {{{
  sudo apt-get install libwww-mechanize-perl libxml-simple-perl
- wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.8-1_all.deb
- sudo dpkg -i get-flash-videos_1.8-1_all.deb
+ wget http://get-flash-videos.googlecode.com/files/get-flash-videos_1.9-1_all.deb
+ sudo dpkg -i get-flash-videos_1.9-1_all.deb
 }}}
 
 Then, to download something:
@@ -26,7 +26,7 @@ Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for
 Then run the following commands in a terminal, this installs get-flash-videos system-wide.
 
 {{{
- sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.8 -O /usr/local/bin/get_flash_videos
+ sudo wget http://get-flash-videos.googlecode.com/files/get_flash_videos-1.9 -O /usr/local/bin/get_flash_videos
  sudo chmod a+x /usr/local/bin/get_flash_videos
 }}}
 
@@ -56,7 +56,7 @@ We haven't tested rtmpdump on win32.
 Run the following commands in a terminal, this installs it in your home directory.
 
 {{{
- curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.8
+ curl -o get_flash_videos http://get-flash-videos.googlecode.com/files/combined-get_flash_videos-1.9
  chmod a+x get_flash_videos
 }}}
 
