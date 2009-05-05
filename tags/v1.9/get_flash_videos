@@ -1,0 +1,247 @@
+#!/usr/bin/perl
+#
+# get_flash_videos -- download all the Flash videos off a web page
+#
+#   http://code.google.com/p/get-flash-videos/
+#
+# Copyright 2009, zakflash and MonsieurVideo
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain a
+# copy of the License at
+#   http://www.apache.org/licenses/LICENSE-2.0
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# Contributions are welcome and encouraged, but please take care to
+# maintain the JustWorks(tm) nature of the program.
+
+use strict;
+use Getopt::Long;
+use FlashVideo::URLFinder;
+use FlashVideo::Downloader;
+use FlashVideo::RTMPDownloader;
+use FlashVideo::Utils;
+
+use constant VERSION => "1.9";
+
+use constant VER_INFO => <<EOF;
+get_flash_videos version @{[VERSION]} (http://code.google.com/p/get-flash-videos/)
+EOF
+
+use constant USAGE => VER_INFO . <<EOF;
+
+Usage: $0 [OPTION]... url [filename]
+
+Options:
+  -d --debug   Print extra debugging information.
+  -p --play    Start playing the video once enough has been downloaded.
+     --player  Player to use for the video (default: mplayer -really-quiet %s).
+  -q --quiet   Be quiet (only print errors).
+  -u --update  Update to latest version.
+  -v --version Print version.
+  -y --yes     Say yes to any questions (don't prompt for any information).
+
+EOF
+
+use constant REQ_INFO => <<EOF;
+
+A required Perl module for downloading this video is not installed.
+EOF
+
+use constant FRIENDLY_FAILURE => <<EOF;
+  
+Couldn't extract Flash movie URL. This site may need specific support adding,
+or fixing.
+
+Please confirm the site is using Flash video and if you have Flash available
+check that the URL really works(!).
+  
+Check for updates by running: $0 --update
+
+If the latest version does not support this please open a bug (or
+contribute a patch!) at http://code.google.com/p/get-flash-videos/
+EOF
+
+our %opt = (
+  yes => 0,
+  version => 0,
+  update => 0,
+  play => 0,
+  player => "mplayer -really-quiet %s",
+  debug => 0,
+  quiet => 0,
+);
+
+read_conf();
+
+GetOptions(
+  "yes|y"      => \$opt{yes},
+  "version|v"  => \$opt{version},
+  "update|u"   => \$opt{update},
+  "help|h"     => \$opt{help},
+  "play|p"     => \$opt{play},
+  "player=s"   => \$opt{player},
+  "debug|d"    => \$opt{debug},
+  "quiet|q"    => \$opt{quiet},
+);
+
+if($opt{version}) {
+  die VER_INFO;
+} elsif($opt{update}) {
+  exit update();
+} elsif($opt{help}) {
+  die USAGE;
+}
+
+binmode STDERR, ":utf8";
+
+my ($url, $filename) = @ARGV;
+$url or die USAGE;
+
+$url = "http://$url" if $url !~ m!^\w+:!;
+
+# Might be downloading from a site that uses Brightcove or other similar
+# Flash RTMP streaming server. These are handled differently. Need to get
+# the page to determine this.
+info "Downloading $url";
+my $browser = FlashVideo::URLFinder::get_browser();
+$browser->get($url);
+
+# (Redirect check is for Youtube which sometimes redirects to login page
+# for "mature" videos.)
+if (!$browser->success and !$browser->response->is_redirect) {
+  error "Couldn't download '$url': " . $browser->response->status_line;
+}
+
+# Figure out what package we need to use to get either the HTTP URL or
+# rtmpdump data for the video. 
+my($package, $possible_url) = FlashVideo::URLFinder::find_package($url, $browser);
+
+info "Using method '" . lc((split /::/, $package)[-1]) . "' for $url";
+
+my ($actual_url, @suggested_fnames);
+
+eval {
+  ($actual_url, @suggested_fnames) =
+    $package->find_video($browser, $possible_url);
+};
+
+if(!$actual_url) {
+  if($@ =~ /^Must have | requires /) {
+    my $error = "$@";
+    $error =~ s/at $0.*//;
+    die "$error" . REQ_INFO;
+  } else {
+    die "Error: $@" . FRIENDLY_FAILURE;
+  }
+}
+
+my $suggested_filename = $suggested_fnames[-1];
+
+if (!$opt{play}) {
+  if (!$opt{yes} && @suggested_fnames > 1) {
+    print "There are different suggested filenames, please choose:\n";
+    my $count;
+    foreach my $filename (@suggested_fnames) {
+      $count++;
+      print "$count - $filename\n";
+    }
+
+    print "\nWhat filename would you like to use: ";
+    chomp(my $chosen_fname = <STDIN>);
+
+    $suggested_filename = $suggested_fnames[$chosen_fname - 1] ||
+      $suggested_fnames[-1];
+  }
+}
+
+my $save_as = $filename || $suggested_filename;
+
+my $action = $opt{play} ? "play" : "download";
+
+for my $data((ref($actual_url) eq 'ARRAY' ? @$actual_url : $actual_url)) {
+  if(ref $data eq 'HASH') {
+    # RTMP data
+    FlashVideo::RTMPDownloader->new()->$action($data) || exit 1;
+  } else {
+    # HTTP
+    FlashVideo::Downloader->new->$action($data, $save_as, $browser) || exit 1;
+  }
+}
+
+exit 0;
+
+sub read_conf {
+  for my $file("/etc/get_flash_videosrc", "$ENV{HOME}/.get_flash_videosrc") {
+    open my $fh, "<", $file or next;
+
+    while(<$fh>) {
+      s/\r?\n//;
+      next if /^\s*(#|$)/;
+
+      my($n, $v) = split /\s*=\s*/;
+      $v = 1 unless defined $v;
+      $opt{$n} = $v;
+    }
+  }
+}
+
+sub update {
+  # SCRIPT_NAME is some magic set by combine-perl
+  die "This is a development version" unless $::SCRIPT_NAME;
+
+  my $browser = FlashVideo::URLFinder::get_browser();
+
+  $browser->get("http://get-flash-videos.googlecode.com/svn/wiki/Version.wiki");
+
+  if(!$browser->response->is_success) {
+    die "Unable to retrieve version data: " . $browser->response->status_line;
+  }
+
+  my $version = ($browser->content =~ /version: (\S+)/)[0];
+  my $base = ($browser->content =~ /from: (\S+)/)[0];
+  my $info = ($browser->content =~ /info: (\S+)/)[0];
+  my $url = $base . $::SCRIPT_NAME . "-" . $version;
+
+  die "Unable to parse version data" unless $version and $base;
+
+  # Split version on . and compare..
+  my @v = split /\./, $version;
+  my @V = split /\./, VERSION;
+
+  my $newer = 0;
+  my $i = 0;
+  for(@v) {
+    $newer = 1 if !defined $V[$i] || $_ > $V[$i];
+    last if $V[$i] > $v[$i];
+    $i++;
+  }
+
+  if($newer) {
+    info "Newer version ($version) available, downloading..";
+    die "Cannot update -- unable to write to $0\n" unless -w $0;
+
+    my $new_file = $0 . ".new";
+    $browser->mirror($url, $new_file);
+
+    if($browser->response->is_success && -f $new_file) {
+      rename $0, "$0.old" or die "Unable to rename $0 to $0.old: $!";
+      rename $new_file, $0 or die "Unable to rename $new_file to $0: $!";
+      chmod 0755, $0;
+
+      info "New version installed as $0";
+      info "(previous version backed up to $0.old).";
+      info $info;
+      exit 0;
+    } else {
+      die "Download failed: " . $browser->response->status_line;
+    }
+  } else {
+    die "You already have the latest version.\n";
+  }
+}
+
