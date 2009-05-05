@@ -1,6 +1,18 @@
 ﻿#summary How to install get_flash_videos
 #labels Featured,Phase-Deploy
 
+= Requirements =
+
+Basic requirements:
+  * perl >= 5.8.0
+  * WWW::Mechanize
+
+Optional requirements (for support for certain sites):
+  * rtmpdump
+  * XML::Simple
+  * Data::AMF
+  * Compress::Zlib
+
 = Various operating systems =
 
 == Debian / Ubuntu packaged version ==
