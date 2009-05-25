@@ -3,11 +3,17 @@ NAME
     hosting sites
 
 SYNOPSIS
-    get_flash_videos [OPTION]... URL [FILENAME]
+    get_flash_videos [OPTION]... URL
+
+    get_flash_videos [OPTION]... search
 
 DESCRIPTION
-    Download the Flash video from the web page given in "URL" saving as
-    "FILENAME". If no filename is supplied, a suitable one will be chosen.
+    Download the Flash video from the web page given in "URL", choosing a
+    suitable filename.
+
+    Alternatively if "search" is specified (either quoted or unquoted),
+    "get_flash_videos" will search Google Video for "search", and present a
+    list of videos to download.
 
     *get-flash-videos* attempts to support many video sites, therefore there
     is no list of supported sites in this manual page as it frequently
@@ -16,6 +22,11 @@ DESCRIPTION
 OPTIONS
     -d, --debug
         Print extra debugging information.
+
+    -f, --filename
+        Save downloaded file to the specified filename. Usually this
+        shouldn't be necessary, as "get_flash_videos" tries to use a
+        meaningful name for the video.
 
     -p, --play
         Begin playing the video once enough of the file has been downloaded.
@@ -50,7 +61,8 @@ OPTIONS
 
     -y, --yes
         Do not prompt with any questions, just say 'yes'. This means either
-        literally yes, or the default option if choosing from a list.
+        literally yes, or the default or first option if choosing from a
+        list.
 
 CONFIGURATION
     On startup *get_flash_videos* will read the configuration files located
@@ -70,6 +82,31 @@ CONFIGURATION
     Options given on the command line will override these options, with the
     exception that it is not currently possible to disable an option enabled
     in the configuration file from the command line.
+
+EXAMPLES
+    Play a video (may prompt for filename still, override with -y):
+
+        get_flash_videos -p http://some.site/video
+
+    Download a video (note quotes are required for URLs with special
+    characters like "&" in):
+
+        get_flash_videos "http://some.site/video?f=1&v=1234"
+
+    Play the URL on the clipboard (UNIX):
+
+        xclip -o | xargs get_flash_videos -y -p
+
+    Play the URL on the clipboard (OSX):
+
+        pbpaste | xargs get_flash_videos -y -p
+
+    (Note if there is text on the clipboard rather than a URL above then
+    get_flash_videos will search for it).
+
+    Play the first video matching "Open Source":
+
+        get_flash_videos -y -p Open Source
 
 BUGS
     Third party sites are a moving target therefore it is possible support
