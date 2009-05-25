@@ -1,4 +1,6 @@
-== Why do you help people violate copyright?
+﻿#summary Frequently Asked Questions
+
+== Why do you help people violate copyright? ==
 
 get-flash-videos is a tool, like any tool it can be misused.
 [http://en.wikipedia.org/wiki/Time_shifting Time shifting] has been considered
