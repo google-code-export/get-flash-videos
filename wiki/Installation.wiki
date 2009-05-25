@@ -5,10 +5,10 @@
 
 Basic requirements:
   * perl >= 5.8.0
-  * WWW::Mechanize
+  * WWW::Mechanize (but not for the combined version, see OSX below).
 
 Optional requirements (for support for certain sites):
-  * rtmpdump
+  * rtmpdump (see section below)
   * XML::Simple
   * Data::AMF
   * Compress::Zlib
@@ -31,6 +31,8 @@ Then, to download something:
  get_flash_videos url..
 }}}
 
+See UsageExamples for more.
+
 == Other Linux/Unix-like OS ==
 
 Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). Preferably install the packaged versions of these provided by your distribution. If you can't, install the modules off [http://search.cpan.org/ CPAN] - see the [http://search.cpan.org/~jhi/perl-5.8.0/pod/perlmodinstall.pod perlmodinstall] documentation for more information.
@@ -46,6 +48,8 @@ Then, to download something:
 {{{
  get_flash_videos url..
 }}}
+
+See UsageExamples for more.
 
 == Windows ==
 
@@ -77,11 +81,15 @@ Then, to download something:
  ./get_flash_videos url..
 }}}
 
+See UsageExamples for more.
+
 Note you may also need to install the Perl modules XML::Simple and Data::AMF for support for some sites.
 
 = rtmpdump =
 
-get_flash_videos can download videos from servers over RTMP, this needs rtmpdump. You can get a copy of rtmpdump from [http://rtmpfiles.110mb.com/ here]. You should then copy this to somewhere on your PATH.
+get_flash_videos can download videos from servers over RTMP, this needs rtmpdump. You can get a copy of rtmpdump
+from [http://rtmpfiles.110mb.com/ here]. If you compile it or use an unpackaged version you should copy this to
+somewhere on your PATH (e.g. /usr/local/bin).
 
 = Using get_flash_videos =
 
