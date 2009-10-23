@@ -54,10 +54,14 @@ being at the page the user provided on the command line, so matching on
 as the page, but in the case of embedded content it may differ (see the
 Brightcove support for example).
 
-The subroutine should return the url where the FLV video can be found (or for
-RTMP a hash reference describing the parameters to rtmpdump), as well as a
-filename to use (this should ideally be something descriptive, not necessarily
-the filename used by the video site).
+For Flash video distributed over HTTP, the subroutine should return the URL
+where the FLV video can be found. For sites which use RTMP, a hash reference
+describing the parameters to rtmpdump should be returned. See a module like
+Brightcove which uses RTMP as an example. In both cases, a filename to use
+(this should ideally be something descriptive, not necessarily the filename
+used by the video site) should be returned as the second item. Multiple,
+alternative filenames can also be specified as additional items in the return
+list.
 
 Going back to the example, say that the site embedded a file in the page, like
 so: `file: 'some-video'`.
@@ -86,6 +90,19 @@ the title of the HTML page for that..
 }}}
 
 (`title_to_filename` and `get_video_filename` are methods provided by `FlashVideo::Utils`. *Please* make sure you use these methods for naming files, particularly if you can't extract the title of the page. get_video_filename() returns a date-based filename like <tt>video20081111213736.mp4</tt>, which although not ideal, is better than "default" or similar. Both functions take a type parameter for use as the file's extension. This defaults to flv, but should be set to mp4 if the downloaded file is an MPEG-4 container.)
+
+To make it easy to debug your plugin, you should use the `info` and `debug` functions from `FlashVideo::Utils` like this:
+
+{{{
+  info "Informative message shown unless --quiet is supplied";
+  debug "Debugging message shown when --debug is enabled";
+}}}
+
+All these messages are written to STDERR. Newlines are automatically appended to the messages.
+
+`FlashVideo::Utils` has several other useful functions for various things like
+extracting titles out of pages (titles are often a good starting point for
+video filenames) and SWF hashing (some sites use this for authentication).
 
 That is all there is to creating a site module, except obviously working out
 what the site actually does. [http://www.getfirebug.com/ Firebug], [http://www.wireshark.org/ Wireshark], [http://portswigger.net/proxy/ Burp] and so on are useful here.
