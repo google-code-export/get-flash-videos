@@ -1,9 +1,13 @@
 ﻿#summary Writing a plugin
 #labels Phase-Implementation
 
+=Introduction=
+
 Writing a plugin is practically the same as adding support for a site (see AddingSite).
 
 Currently plugins can only implement the same functionality as normal site modules. We are planning on adding support for other types of plugin in future.
+
+=Developing and testing=
 
 To develop and test your plugin, we recommend using a check-out of our Subversion repository. You could use the 'standalone' script, but this makes it harder to figure out why your plugin doesn't compile.
 
@@ -29,6 +33,8 @@ If get_flash_videos doesn't use your plugin for downloading the video you've spe
 
 (If you're in your get_flash_videos SVN checkout directory, you don't need to alter Perl's search path to find get_flash_videos' modules.)
 
+==Adding support for updating==
+
 Once you've written your site module, you can add support for get_flash_videos updating it automatically when a user supplies the `--update` option. Updating plugins works in a very simple way. Simply define `@update_urls` at package level, specifying a list of URLs for your plugin:
 
 {{{
@@ -40,3 +46,35 @@ Once you've written your site module, you can add support for get_flash_videos u
 Whether you need multiple URLs or not depends on the nature of your plugin and where you're hosting it. If you think there's a chance that your plugin might be taken off whatever site you're hosting it on, or the site has poor reliability, you can define multiple URLs. If you do this though, be sure to keep the different files in sync. get_flash_videos determines whether it needs to update your plugin by comparing the plugin's modification time on disk with the Last-Modified-Date that the server returns in response to a HEAD request. Some code hosting sites set this to the date and time of your last commit, which is handy.
 
 If this kind of updating isn't flexible enough for your plugin, you can define your own `update` method. In this case, the `@update_urls` array is ignored. In this situation, you'll need to call `install_plugin` method to actually update the plugin on disk.
+
+==Adding support for search==
+
+For some sites/plugins, having a search feature is useful. If a plugin defines a search method, get_flash_videos will call its search method and combine the results with Google Video search results (except in one specific case, see later).
+
+Your search method will be passed in the user's search string as the first parameter (after self):
+
+{{{
+sub search {
+  my ($self, $search) = @_;
+}
+}}}
+
+Return results in order of relevance (from highest to lowest) as a list of hash references with these keys:
+
+* `name`: textual name of the search result like "Funny video 123".
+* `url`: absolute URL to the page on the video is found.
+
+Results from plugins are always shown before Google Video search results in the result list. Google Video will always be searched unless a user restricts their search to your site. This happens when a user's search string includes the name of your plugin as the first item in their search string. For example, if your plugin is called Funvideo, if a user runs:
+
+{{{
+get_flash_videos Funvideo something
+}}}
+
+Then only your plugin's search method will be called. Note that the name of your plugin is removed from the search string before it's passed to your search method, so you don't need to remove it.
+
+Some other general tips:
+
+* Remember to decode HTML entities in search result names/titles.
+* `WWW::Mechanize`'s `find_all_links` method is useful for retrieving all links matching flexible criteria from the page.
+* Think about how your search results will be presented. Will they include enough information for users to make an informed decision? Depending on the site that you're supporting, the length of the video might be important, so include that if possible.
+* Try to put the most relevant result first, as when a user searches with the `--yes` option, the first result is automatically downloaded. 
