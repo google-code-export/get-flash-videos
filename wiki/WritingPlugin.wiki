@@ -61,8 +61,8 @@ sub search {
 
 Return results in order of relevance (from highest to lowest) as a list of hash references with these keys:
 
-* `name`: textual name of the search result like "Funny video 123".
-* `url`: absolute URL to the page on the video is found.
+  * `name`: textual name of the search result like "Funny video 123".
+  * `url`: absolute URL to the page on the video is found.
 
 Results from plugins are always shown before Google Video search results in the result list. Google Video will always be searched unless a user restricts their search to your site. This happens when a user's search string includes the name of your plugin as the first item in their search string. For example, if your plugin is called Funvideo, if a user runs:
 
@@ -74,7 +74,7 @@ Then only your plugin's search method will be called. Note that the name of your
 
 Some other general tips:
 
-* Remember to decode HTML entities in search result names/titles.
-* `WWW::Mechanize`'s `find_all_links` method is useful for retrieving all links matching flexible criteria from the page.
-* Think about how your search results will be presented. Will they include enough information for users to make an informed decision? Depending on the site that you're supporting, the length of the video might be important, so include that if possible.
-* Try to put the most relevant result first, as when a user searches with the `--yes` option, the first result is automatically downloaded. 
+  * Remember to decode HTML entities in search result names/titles.
+  * `WWW::Mechanize`'s `find_all_links` method is useful for retrieving all links matching flexible criteria from the page.
+  * Think about how your search results will be presented. Will they include enough information for users to make an informed decision? Depending on the site that you're supporting, the length of the video might be important, so include that if possible.
+  * Try to put the most relevant result first, as when a user searches with the `--yes` option, the first result is automatically downloaded. 
