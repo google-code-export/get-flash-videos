@@ -23,3 +23,6 @@ Play the first video matching "Open Source":
 
   get_flash_videos -y -p Open Source
 
+Install a plugin:
+
+  get_flash_videos --add-plugin http://website.com/PluginName.pm
