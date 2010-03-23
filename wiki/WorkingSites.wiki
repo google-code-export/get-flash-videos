@@ -1,3 +1,7 @@
 #summary A list of currently working sites
 
-YouTube, Dailymotion, Wimp, BBC (news, etc), Metacafe, Google, fliqz, nicovideo, ustream.tv, vimeo, Break, Collegehumor, Muzu, Sevenload, Megavideo, Wat.tv, Pornhub, discovery.com (requires rtmpdump), nfb.ca (requires rtmpdump), stagevu, 
+[http://www.youtube.com/ YouTube], [http://www.dailymotion.com/ Dailymotion], [http://www.wimp.com/ Wimp], [http://news.bbc.co.uk/ BBC (News, etc)], [http://www.metacafe.com/ Metacafe], [http://video.google.com/ Google], Fliqz, [http://www.nicovideo.jp/ Nicovideo], [http://www.ustream.tv/ Ustream], [http://vimeo.com/ Vimeo], [http://www.break.com/ Break], [http://www.collegehumor.com/ Collegehumor], [http://www.muzu.tv/ Muzu], [http://www.sevenload.com/ Sevenload], [http://www.megavideo.com/ Megavideo], [http://www.wat.tv/ Wat.tv], [http://www.pornhub.com/ Pornhub], [http://stagevu.com/ Stagevu], [http://www.5min.com/ 5min]
+
+*Sites requiring rtmpdump to download from*
+
+[http://www.discovery.com/ Discovery], [http://nfb.ca/ Nfb.ca]
