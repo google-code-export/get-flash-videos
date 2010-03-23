@@ -2,5 +2,5 @@
 
 = Supported sites =
 
-YouTube, Dailymotion, Wimp,  Brightcove (used by many sites like Channel 4, Daily Telegraph ...), BBC (news, etc), Metacafe, 5min, Google, fliqz, nicovideo, vimeo, Blip, Break, Collegehumor, Muzu, Sevenload, Megavideo, Wat.tv, Pornhub
+YouTube, Dailymotion, Wimp,  Brightcove (used by many sites like Channel 4, Daily Telegraph ...), BBC (news, etc), Metacafe, Google, fliqz, nicovideo, vimeo, Blip, Break, Collegehumor, Muzu, Sevenload, Megavideo, Wat.tv, Pornhub
   
