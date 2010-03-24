@@ -5,3 +5,7 @@
 *Sites requiring rtmpdump to download from*
 
 [http://www.discovery.com/ Discovery], [http://nfb.ca/ Nfb.ca]
+
+*Sites supported by plugins*
+
+[http://gitorious.org/get-flash-videos-plugins/pages/Hulu Hulu].
