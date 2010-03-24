@@ -35,7 +35,7 @@ See UsageExamples for more.
 
 == Other Linux/Unix-like OS ==
 
-Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). Preferably install the packaged versions of these provided by your distribution. If you can't, install the modules off [http://search.cpan.org/ CPAN] - see the [http://search.cpan.org/~jhi/perl-5.8.0/pod/perlmodinstall.pod perlmodinstall] documentation for more information.
+Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). Preferably install the packaged versions of these provided by your distribution. If you can't, install the modules off [http://search.cpan.org/ CPAN] - follow [http://code.google.com/p/get-flash-videos/wiki/CPANGuide our short walkthrough] or read the [http://search.cpan.org/~jhi/perl-5.8.0/pod/perlmodinstall.pod perlmodinstall] documentation for more extensive information.
 
 Then run the following commands in a terminal, this installs get-flash-videos system-wide.
 
