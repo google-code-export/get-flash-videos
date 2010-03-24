@@ -2,7 +2,7 @@
 
 = Using CPAN =
 
-CPAN is a commandline program that works much like a package manager to fetch a module and resolve any dependencies that module has. You need to run cpan with superuser priveleges so either as root or using sudo. 
+CPAN is a command line program that works much like a package manager to fetch a module and resolve any dependencies that module has. You need to run cpan with superuser privileges so either as root or using sudo. 
 
 `sudo cpan`
 
@@ -13,4 +13,5 @@ It will ask if it can auto configure stuff. Select yes. After a lot of text and 
 It will connect to the internet and likely ask if it can install several other modules it needs to complete this task. All you have to do at these prompts is hit enter and it will soon finish. When you are back at the cpan prompt and ready to exit the program, type exit and hit enter.
 
 = Data::AMF::Packet dependency error =
-While most dependencies can be satisfied with cpan, a small few cannot. For our purposes, to install Data::AMF::Packet, you will need XML::LibXML, which for whatever reason is not available through cpan at the time this guide was posted. It can however be gotten through regular repositories, for example in Ubuntu you can install the package libxml-perl and it will satisfy the dependency, and it seems that Debian also has a similar package providing the necessary module. After installing the package through your repository you should have no errors installing Data::AMF::Packet through cpan.
+
+While most dependencies can be satisfied with cpan, a small few cannot. For our purposes, to install Data::AMF::Packet, you will need XML::LibXML, which due to requiring an underlying C library (libxml2) is not always available through CPAN. It can however be installed through regular repositories, for example in Debian or Ubuntu you can install the package libxml-libxml-perl and it will satisfy the dependency (or on Red Hat the package is perl-XML-LibXML). After installing the package through your repository you should have no errors installing Data::AMF::Packet through CPAN.
