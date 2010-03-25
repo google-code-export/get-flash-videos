@@ -88,8 +88,8 @@ Note you may also need to install the Perl modules XML::Simple and Data::AMF for
 
 = rtmpdump =
 
-get_flash_videos can download videos from servers over RTMP, this needs rtmpdump. You can get a copy of rtmpdump from http://rtmpdump.mplayerhq.hu. If you compile it or use an unpackaged version you should copy this to
-somewhere on your PATH (e.g. /usr/local/bin).
+get_flash_videos can download videos from servers over RTMP, this needs rtmpdump. You can get a copy of rtmpdump from http://rtmpdump.mplayerhq.hu. If you compile it or use an unpackaged version you should chmod it as executable and copy this to
+somewhere on your PATH (e.g. /usr/local/bin). If you have problems compiling, make sure you have libssl-dev installed.
 
 = Using get_flash_videos =
 
