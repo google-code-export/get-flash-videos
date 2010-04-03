@@ -1,0 +1,16 @@
+﻿#summary How to get and use the source code
+#labels Featured,Phase-Implementation
+
+`get-flash-videos` is developed in git, on
+[http://github.com/monsieurvideo/get-flash-videos GitHub].
+
+You may check out a copy of the source using:
+{{
+   git clone git://github.com/monsieurvideo/get-flash-videos.git
+}}
+
+Alternatively you can [http://github.com/monsieurvideo/get-flash-videos fork]
+the project on GitHub in order to contribute patches that way.
+
+Read [[Developing]] for details on how to add support for sites.
+
