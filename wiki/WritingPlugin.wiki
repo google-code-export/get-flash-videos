@@ -9,7 +9,7 @@ Currently plugins can only implement the same functionality as normal site modul
 
 =Developing and testing=
 
-To develop and test your plugin, we recommend using a check-out of our Subversion repository. You could use the 'standalone' script, but this makes it harder to figure out why your plugin doesn't compile.
+To develop and test your plugin, we recommend using a check-out of our git repository. You could use the 'standalone' script, but this makes it harder to figure out why your plugin doesn't compile.
 
 Place your plugin (called say 'Channel4.pm' for `FlashVideo::Site::Channel4`) in your personal get_flash_videos plugins directory. On Linux and other Unix-like operating systems, this in `~/.get_flash_videos/plugins`. On Windows, this is in `get_flash_videos/plugins` in your 'application data' directory. Then run get_flash_videos with the `--debug` option. When it starts, it should show output like:
 
@@ -25,13 +25,13 @@ If you don't see your plugin listed here, make sure you've copied it into the co
   Trying to open plugin /home/zak/.get_flash_videos/plugins/Brightcove.pm
 }}}
 
-If get_flash_videos doesn't use your plugin for downloading the video you've specified, check that the package name matches part of the hostname. (For example, 'channel4' matches 'Channel4'.) If your plugin supports several different hosts, or supports embedded videos which use a particular kind of player, define a `can_handle` method. If get_flash_videos still doesn't use your plugin for downloading the video you've specified, check that your code compiles. The easiest way of doing this is by running, from your get_flash_videos SVN checkout directory:
+If get_flash_videos doesn't use your plugin for downloading the video you've specified, check that the package name matches part of the hostname. (For example, 'channel4' matches 'Channel4'.) If your plugin supports several different hosts, or supports embedded videos which use a particular kind of player, define a `can_handle` method. If get_flash_videos still doesn't use your plugin for downloading the video you've specified, check that your code compiles. The easiest way of doing this is by running, from your get_flash_videos git checkout directory:
 
 {{{
   perl -c ~/.get_flash_videos/plugins/Plugin.pm
 }}}
 
-(If you're in your get_flash_videos SVN checkout directory, you don't need to alter Perl's search path to find get_flash_videos' modules.)
+(If you're in your get_flash_videos git checkout directory, you don't need to alter Perl's search path to find get_flash_videos' modules.)
 
 ==Adding support for updating==
 
