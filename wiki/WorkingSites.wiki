@@ -1,13 +1,11 @@
 #summary A list of currently working sites
 
-[http://www.youtube.com/ YouTube], [http://www.dailymotion.com/ Dailymotion], [http://www.wimp.com/ Wimp], [http://news.bbc.co.uk/ BBC (News, etc)], [http://www.metacafe.com/ Metacafe], [http://video.google.com/ Google], Fliqz, [http://www.nicovideo.jp/ Nicovideo], [http://www.ustream.tv/ Ustream], [http://vimeo.com/ Vimeo], [http://www.break.com/ Break], [http://www.collegehumor.com/ Collegehumor], [http://www.muzu.tv/ Muzu], [http://www.sevenload.com/ Sevenload], [http://www.megavideo.com/ Megavideo], [http://www.wat.tv/ Wat.tv], [http://www.pornhub.com/ Pornhub], [http://stagevu.com/ Stagevu], [http://www.5min.com/ 5min], [http://liveleak.com/ Liveleak], [http://www.ehow.com/ eHow]
+[http://www.youtube.com/ YouTube], [http://www.dailymotion.com/ Dailymotion], [http://www.wimp.com/ Wimp], [http://news.bbc.co.uk/ BBC (News, etc)], [http://www.metacafe.com/ Metacafe], [http://video.google.com/ Google], Fliqz, [http://www.nicovideo.jp/ Nicovideo], [http://www.ustream.tv/ Ustream], [http://vimeo.com/ Vimeo], [http://www.break.com/ Break], [http://www.collegehumor.com/ Collegehumor], [http://www.muzu.tv/ Muzu], [http://www.sevenload.com/ Sevenload], [http://www.megavideo.com/ Megavideo], [http://www.wat.tv/ Wat.tv], [http://www.pornhub.com/ Pornhub], [http://stagevu.com/ Stagevu], [http://www.5min.com/ 5min], [http://liveleak.com/ Liveleak], [http://www.ehow.com/ eHow], [http://shows.ctv.ca/video.aspx Ctv.ca] (Ctv needs latest development version)
 
 *Sites requiring rtmpdump to download from*
 
-[http://www.discovery.com/ Discovery], [http://nfb.ca/ Nfb.ca]
+[http://www.discovery.com/ Discovery], [http://nfb.ca/ Nfb.ca], [http://www.tou.tv/ Tou.tv] (Tou.tv needs latest development version)
 
 *Sites supported by plugins*
 
 [http://gitorious.org/get-flash-videos-plugins/pages/Hulu Hulu].
-
-[http://www.tou.tv/ Tou.tv] [http://groups.google.com/group/get-flash-videos/files (Get plugin here)]
