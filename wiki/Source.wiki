@@ -1,5 +1,5 @@
 ﻿#summary How to get and use the source code
-#labels Featured,Phase-Implementation
+#labels Phase-Implementation
 
 `get-flash-videos` is developed in git, on
 [http://github.com/monsieurvideo/get-flash-videos GitHub].
@@ -14,4 +14,3 @@ Alternatively you can fork the project on
 contribute patches that way.
 
 Read [Developing] for details on how to add support for sites.
-
