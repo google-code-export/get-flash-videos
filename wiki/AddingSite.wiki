@@ -103,4 +103,4 @@ extracting titles out of pages (titles are often a good starting point for
 video filenames) and SWF hashing (some sites use this for authentication).
 
 That is all there is to creating a site module, except obviously working out
-what the site actually does. [http://www.getfirebug.com/ Firebug], [http://www.wireshark.org/ Wireshark], [http://portswigger.net/proxy/ Burp] and so on are useful here.
+what the site actually does. [http://www.getfirebug.com/ Firebug], [http://www.wireshark.org/ Wireshark], [http://tamperdata.mozdev.org/ Tamper data (Firefox extension)], [http://portswigger.net/proxy/ Burp] and so on are useful here.
