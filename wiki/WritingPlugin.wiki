@@ -75,7 +75,7 @@ Then only your plugin's search method will be called. Note that the name of your
 
 ==Subtitles==
 
-If possible, please add support for subtitles. (But use the preferences object, passed in to your plugin or site's `find_video` method as the 4th argument, to control whether or not.) Subtitles actually make videos useful to people who are deaf or hard of hearing, and can be useful otherwise for finding old videos in future. Please convert subtitles to [http://en.wikipedia.org/wiki/SubRip#SubRip_text_file_format SubRip format]. The `convert_sami_subtitles_to_srt` function in `FlashVideo::Utils` might be useful. Please use the same base name for the subtitle file as for the video (for example, for "foo.flv", use "foo.srt"), so media players like mplayer and VLC can find subtitles.
+If possible, please add support for subtitles. (But use the preferences object, passed in to your plugin or site's `find_video` method as the 4th argument, to control whether or not your plugin downloads subtitles.) Subtitles actually make videos useful to people who are deaf or hard of hearing, and can be useful otherwise for finding old videos in future. Please convert subtitles to [http://en.wikipedia.org/wiki/SubRip#SubRip_text_file_format SubRip format]. The `convert_sami_subtitles_to_srt` function in `FlashVideo::Utils` might be useful. Please use the same base name for the subtitle file as for the video (for example, for "foo.flv", use "foo.srt"), so media players like mplayer and VLC can find subtitles.
 
 Some other general tips:
 
