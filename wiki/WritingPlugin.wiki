@@ -7,6 +7,10 @@ Writing a plugin is practically the same as adding support for a site (see Addin
 
 Currently plugins can only implement the same functionality as normal site modules. We are planning on adding support for other types of plugin in future.
 
+=List of plugins=
+
+Once you've written and tested your plugin, please contact us and we'll add it to the PluginList page to help people find it.
+
 =Developing and testing=
 
 To develop and test your plugin, we recommend using a check-out of our git repository. You could use the 'standalone' script, but this makes it harder to figure out why your plugin doesn't compile.
