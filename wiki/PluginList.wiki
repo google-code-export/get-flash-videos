@@ -1,0 +1,9 @@
+#summary List of external get_flash_videos plugins.
+
+= get_flash_videos plugins =
+
+Contact us if you want your get_flash_videos plugin listed here. See also WritingPlugin and AddingSite for details on how to write a get_flash_videos plugin.
+
+==Hulu==
+
+[http://gitorious.org/get-flash-videos-plugins/pages/Hulu Hulu plugin]
