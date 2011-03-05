@@ -34,6 +34,16 @@ Then, to download something:
 
 See UsageExamples for more.
 
+== Fedora ==
+
+This installs all the dependencies:
+
+{{{
+yum install -y perl-libxml-perl perl-WWW-Mechanize perl-Compress-Raw-Zlib perl-Crypt-Rijndael
+}}}
+
+You can then simply run the downloaded script.
+
 == Other Linux/Unix-like OS ==
 
 Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). Preferably install the packaged versions of these provided by your distribution. If you can't, install the modules off [http://search.cpan.org/ CPAN] - follow [http://code.google.com/p/get-flash-videos/wiki/CPANGuide our short walkthrough] or read the [http://search.cpan.org/~jhi/perl-5.8.0/pod/perlmodinstall.pod perlmodinstall] documentation for more extensive information.
