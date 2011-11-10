@@ -26,3 +26,6 @@ Play the first video matching "Open Source":
 Install a plugin:
 
   get_flash_videos --add-plugin http://website.com/PluginName.pm
+
+Download all videos from file containing a list of URLs separated by new lines:
+  cat urls | while read line; do get_flash_videos "$line"; done
