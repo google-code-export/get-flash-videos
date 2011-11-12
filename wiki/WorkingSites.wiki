@@ -1,5 +1,9 @@
 #summary A list of currently working sites
 
+= Notes =
+Some sites handle certain videos differently and the plugin may still work for certain videos, see [BrokenSites].
+Some sites frequently remove videos, so newer videos may still work.
+
 = List of Currently Working Sites=
   * [http://www.5min.com/ 5min]
   * [http://www.amazon.com/ Amazon]
