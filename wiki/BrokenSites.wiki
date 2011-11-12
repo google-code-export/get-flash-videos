@@ -1,0 +1,68 @@
+#summary List of sites that are broken
+
+= Introduction =
+
+All of these sites have worked in the past, but for some reason are not working now.
+
+= Sites =
+* Abc.com
+* abclocal.go.com
+* About (brightcove)
+* Amazon
+* Apple
+* BBC
+* Blip
+* Break
+* Brightcove
+* Cartoonnetwork.com
+* Cbs.com
+* Collegehumor
+* Dailymotion
+* eHow
+* Expertvillage
+* Fliqz
+* Fora
+* Freevideo
+* Gamespot
+* GlobalTV
+* Google Video
+* GrindTV
+* ITV
+* Kanal5play
+* Killsometime
+* Last.fm
+* Liveleak
+* MIT
+* Mofosex
+* Mtvnservices
+* Muzu
+* Mylifetime
+* Nbc
+* NFB
+* Nick
+* Nicovideo
+* Onion
+* Pennyarcade
+* Red Bull
+* Sbs
+* Seesaw
+* SlashControl (owned by AOL)
+* Spike
+* Stagevu
+* Starwars.com
+* Ted
+* Thirteen
+* Today's big thing
+* Tudou
+* Tv3play (Tv6play,Tv8play)
+* TVA
+* Ustream (recorded only)
+* Videobb with redirect
+* Videojug
+* Vimeo
+* Vrak
+* Wat
+* Xnxx
+* Xvideos
+* Youku
+* YouTube RTMP
