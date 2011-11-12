@@ -1,7 +1,7 @@
 #summary A list of currently working sites
 
 = List of Currently Working Sites=
-  * [http://www.5min .com/ 5min]
+  * [http://www.5min.com/ 5min]
   * [http://www.amazon.com/ Amazon]
   * [http://www.arte.tv/ arte.tv]
   * [http://www.bing.com/ Bing]
