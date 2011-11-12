@@ -1,4 +1,4 @@
-#summary List of sites that are broken
+#summary A list of broken sites
 
 = Introduction =
 
