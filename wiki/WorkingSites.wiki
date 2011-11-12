@@ -1,6 +1,6 @@
 #summary A list of currently working sites
 
-= List of Currently Working Sites
+= List of Currently Working Sites=
   * [http://www.5min .com/ 5min]
   * [http://www.amazon.com/ Amazon]
   * [http://www.arte.tv/ arte.tv]
@@ -15,7 +15,7 @@
   * [http://www.joemonster.com/ Joemonster]
   * [http://www.kidswb.com/ KidsWB (Warner Brothers)]
   * [http://www.megavideo.com/ Megavideo]
-  * [http://www.metacafe .com/ Metacafe ]
+  * [http://www.metacafe.com/ Metacafe ]
   * [http://www.movietv.us.com/ Movietv.us]
   * [http://www.msnbc.com/ msnbc]
   * [http://www.myvideo.com/ Myvideo]
