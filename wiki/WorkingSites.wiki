@@ -1,11 +1,44 @@
 #summary A list of currently working sites
 
-[http://www.youtube.com/ YouTube],  [http://www.wimp.com/ Wimp],  [http://news.bbc.co.uk/ BBC (News, etc)],  [http://www.metacafe.com/ Metacafe],  [http://video.google.com/ Google],  Fliqz,  [http://www.nicovideo.jp/ Nicovideo],  [http://www.ustream.tv/ Ustream],  [http://vimeo.com/ Vimeo],  [http://www.collegehumor.com/ Collegehumor],  [http://www.muzu.tv/ Muzu],  [http://www.sevenload.com/ Sevenload],  [http://www.megavideo.com/ Megavideo],  [http://www.wat.tv/ Wat.tv],  [http://www.pornhub.com/ Pornhub],  [http://stagevu.com/ Stagevu],  [http://www.5min.com/ 5min],  [http://liveleak.com/ Liveleak],  [http://www.ehow.com/ eHow],  [http://shows.ctv.ca/video.aspx Ctv.ca] (Ctv needs latest development version),  [http://myplay.com/ Myplay.com],  [http://xvideos.com/ Xvideos.com],  [http://www.amazon.com/ Amazon.com],  [http://www.flickr.com/ Flickr.com],  [http://freevideo.ru/ Freevideo.ru],  [http://www.grindtv.com/ Grind.tv],  [http://www.ima.umn.edu/ Ima.umn.edu],  [http://www.megaporn.com/video/ Megaporn],  [http://www.ringtv.com/videos/ Ringtv],  [http://www.seesaw.com/ Seesaw],  [http://www.spike.com/ Spike.com],  [http://www.stupidvideos.com/ Stupidvideos.com],  [http://www.todaysbigthing.com/ Todaysbigthing],  
+= List of Currently Working Sites
+  * [http://www.5min .com/ 5min]
+  * [http://www.amazon.com/ Amazon]
+  * [http://www.arte.tv/ arte.tv]
+  * [http://www.bing.com/ Bing]
+  * [http://www.cbsnews.com/ CBS News]
+  * [http://cnettv.cnet.com/ CNET TV]
+  * [http://www.evisor.com/ Evisor]
+  * [http://www.filmschoolrejects.com/ Filmschoolrejects]
+  * [http://www.flickr.com/ Flickr]
+  * [http://www.gawker.com/ Gawker]
+  * [http://www.ima.com/ IMA]
+  * [http://www.joemonster.com/ Joemonster]
+  * [http://www.kidswb.com/ KidsWB (Warner Brothers)]
+  * [http://www.megavideo.com/ Megavideo]
+  * [http://www.metacafe .com/ Metacafe ]
+  * [http://www.movietv.us.com/ Movietv.us]
+  * [http://www.msnbc.com/ msnbc]
+  * [http://www.myvideo.com/ Myvideo]
+  * [http://www.nick.com/ Nick]
+  * [http://www.normal YouTube URL .com/ Normal YouTube URL ]
+  * [http://www.pbs.com/ PBS]
+  * [http://www.redtube.com/ Redtube]
+  * [http://www.sapo.pt/ Sapo.pt]
+  * [http://www.sevenload.com/ Sevenload]
+  * [http://www.stupidvideos.com/ Stupidvideos]
+  * [http://www.svtplay.com/ SVTPlay]
+  * [http://www.tbs.com/ TBS]
+  * [http://www.techcast.com/ Techcast]
+  * [http://tou.tv/ Tou.tv]
+  * [http://www.traileraddict.com/ Traileraddict]
+  * [http://www.tv3play.com/ Tv3play (Tv6play,Tv8play)]
+  * [http://www.Tv4play.com/ Tv4play]
+  * [http://www.tv.com.com/ Tv.com (CBS)]
+  * [http://www.videobb.com/ Videobb]
+  * [http://www.videojug.com/ Videojug]
+  * [http://www.videolectures.com/ Videolectures]
+  * [http://www.xhamster.com/ Xhamster]
+  * [http://www.youtube.com/ YouTube]
 
-*Sites requiring rtmpdump to download from*
-
-[http://www.discovery.com/ Discovery],  [http://nfb.ca/ Nfb.ca],  [http://www.tou.tv/ Tou.tv] (Tou.tv needs latest development version),  [http://videolectures.net/ Videolectures.net]
-
-*Sites supported by plugins*
-
-[http://gitorious.org/get-flash-videos-plugins/pages/Hulu Hulu].
+==Sites supported by plugins==
+  * [http://gitorious.org/get-flash-videos-plugins/pages/Hulu Hulu].
