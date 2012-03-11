@@ -68,7 +68,21 @@ See UsageExamples for more.
 
 Install [http://www.activestate.com/activeperl/ ActivePerl], making sure you tell the installer to add perl's bin directory to your PATH.
 
-Install the Perl modules WWW::Mechanize (required) and XML::Simple (required for some sites). You can install these using ActivePerl's PPM tool.
+Install the Perl modules WWW::Mechanize (required), XML::Simple (required for some sites) and Crypt::Rijndael. You can install these using the PPM tool included with ActivePerl, by running commands like these at a command prompt:
+
+{{{
+  ppm install WWW-Mechanize
+  ppm install XML-Simple
+  ppm install Crypt-Rijndael
+}}}
+
+(To get a command prompt, go to Start, Run and type cmd and press enter.)
+
+You can also try installing them with the CPAN shell, for example by running this at a command prompt:
+
+{{{
+  cpan install Crypt::Rijndael  
+}}}
 
 Save get-flash-videos somewhere on your hard disk, for example c:\flash.
 
