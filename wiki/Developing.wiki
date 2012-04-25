@@ -19,4 +19,4 @@ nature of the script. We mostly just want the script to be given a URL as a
 parameter, and then "just work" - options shouldn't be necessary for normal
 usage.
 
-You can get the source from github.
+You can get the source from github. If you'd like to fix any of the open issues, add support for another site or add new features, please fork the project on github and send us a pull request.
