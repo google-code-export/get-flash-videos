@@ -8,9 +8,9 @@ hostname in the given URL to download to find the module.
 
 For example given: 'http://www.example.com/video/1234' it will search for:
 
-  * FlashVideo::Site::Www
-  * FlashVideo::Site::Example
-  * FlashVideo::Site::Com
+  * `FlashVideo::Site::Www`
+  * `FlashVideo::Site::Example`
+  * `FlashVideo::Site::Com`
 
 (The first letter is capitalised as is the convention for Perl modules, the rest is lowercase.)
 
@@ -104,3 +104,9 @@ video filenames) and SWF hashing (some sites use this for authentication).
 
 That is all there is to creating a site module, except obviously working out
 what the site actually does. [http://www.getfirebug.com/ Firebug], [http://www.wireshark.org/ Wireshark], [http://tamperdata.mozdev.org/ Tamper data (Firefox extension)], [http://portswigger.net/proxy/ Burp] and so on are useful here.
+
+==Other tips==
+
+Some sites use XML to store video details and metadata. Instead of trying to parse XML yourself or grab the relevant parts using a regular expression, consider using `from_xml` from `FlashVideo::Utils`.
+
+Similarly, sites are increasingly also using JSON for video details and metadata. To process this, use `FlashVideo::JSON`.
