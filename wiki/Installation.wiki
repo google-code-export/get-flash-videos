@@ -16,6 +16,32 @@ Optional requirements (for support for certain sites):
 
 = Various operating systems =
 
+== Getting latest code from git ==
+
+We haven't done a release for ages, and get_flash_videos often changes pretty frequently as sites constantly update, breaking the code. This means that the easiest approach is often to get the latest code from git.
+
+On a Linux or other UNIX-like operating systems, if you've got git installed, just run:
+
+{{{
+  git clone https://github.com/monsieurvideo/get-flash-videos.git
+}}}
+
+This will produce a get-flash-videos directory. cd into it and from there you can simply run:
+
+{{{
+  ./get_flash_videos
+}}}
+
+To update, use standard git commands. This isn't the right place for a git tutorial, but in general just use:
+
+{{{
+  git pull origin master
+}}}
+
+== Unofficial releases ==
+
+If you don't like the idea of getting get_flash_videos from git, njtaylor kindly provides downloads of unofficial get_flash_videos releases from [https://github.com/njtaylor/get-flash-videos/downloads njtaylor's github page].
+
 == Debian / Ubuntu packaged version ==
 
 Run the following commands in a terminal, this installs it system-wide.
