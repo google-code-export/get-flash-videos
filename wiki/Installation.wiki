@@ -6,6 +6,7 @@
 Basic requirements:
   * perl >= 5.8.0
   * WWW::Mechanize (but not for the combined version, see OSX below).
+  * Module::Find (but not for the combined version).
 
 Optional requirements (for support for certain sites):
   * rtmpdump (see section below)
